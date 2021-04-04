@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const colors = require('colors');
 const KeyManager = require('../lib/KeyManager')
-
+const { isRequired } = require('../utils/validation')
 
 const key = {
     async set(){
@@ -10,7 +10,8 @@ const key = {
             {
             type: 'input',
             name: 'key',
-            message: 'Enter API key '.green + ' https://nomics.com'
+            message: 'Enter API key '.green + ' https://nomics.com',
+            validate: isRequired
             }
         ]);
 
@@ -21,7 +22,11 @@ const key = {
         }
     },
     show(){
-        console.log("Hello show")
+        try {
+            
+        } catch (error) {
+            
+        }
     },
     remove(){
         console.log("Hello remove")
