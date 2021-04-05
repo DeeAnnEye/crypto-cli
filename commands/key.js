@@ -23,13 +23,27 @@ const key = {
     },
     show(){
         try {
+            const keyManager = new KeyManager();
+            const key = keyManager.getKey();
             
-        } catch (error) {
-            
+            console.log('Current API key: ',key.yellow);
+
+            return key;
+        } catch (err) {
+            console.error(err.message.red)
         }
     },
     remove(){
-        console.log("Hello remove")
+        try {
+            const keyManager = new KeyManager();
+            keyManager.deleteKey();
+            
+            console.log('Key removed'.blue);
+
+            return;
+        } catch (err) {
+            console.error(err.message.red)
+        }
     }
 }
 
